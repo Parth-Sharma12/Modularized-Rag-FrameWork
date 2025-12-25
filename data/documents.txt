@@ -1,0 +1,29 @@
+Large Language Models (LLMs) generate text based on patterns learned from massive datasets but do not have true understanding or access to real-time facts.
+
+LLMs are prone to hallucinations, where they produce confident but incorrect or fabricated information.
+
+Hallucinations often occur when the model is asked questions outside its training data or when sufficient context is not provided.
+
+Retrieval-Augmented Generation (RAG) reduces hallucinations by grounding the model’s responses in external knowledge sources.
+
+In a RAG system, a vector database retrieves semantically similar documents based on embeddings.
+
+Vector similarity search is fast but can retrieve irrelevant or weakly related documents due to semantic overlap.
+
+Cross-encoder re-ranking improves retrieval quality by jointly evaluating the query and each candidate document.
+
+Re-ranking models are slower than vector search but significantly improve precision.
+
+RAG pipelines typically follow four steps: embedding, retrieval, re-ranking, and generation.
+
+Providing high-quality context to the language model improves factual accuracy and reduces hallucination risk.
+
+Without re-ranking, LLMs may receive noisy or misleading context.
+
+Using only a vector database is often insufficient for high-stakes applications like healthcare or finance.
+
+Hybrid RAG architectures balance speed and accuracy by combining vector search with re-ranking.
+
+Context window limitations require careful selection of the most relevant chunks.
+
+Proper evaluation of RAG systems includes measuring retrieval precision, answer correctness, and latency.
