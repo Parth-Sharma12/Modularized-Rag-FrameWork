@@ -1,68 +1,89 @@
-# 🧩 Modular RAG Visualizer  
-### Understanding why Vector Databases alone are not enough
+# 🧩 Modular RAG Visualizer
 
-🔗 **Live Demo:** [[Demo Here](https://drive.google.com/drive/folders/1AeOBonHmU9iy4q4-5UdeerngSCi0Nx3j?usp=drive_link)]  
-
-
----
-
-## 📌 Overview
-
-Large Language Models (LLMs) often **hallucinate** — not because they lack intelligence, but because they are forced to answer questions **without sufficient or well-structured context**.
-
-This project is a **fully visual, modular Retrieval-Augmented Generation (RAG) demo** that shows — step by step — **where hallucinations originate and how modular RAG reduces them**.
-
-Instead of treating RAG as a black box, this demo focuses on:
-- Explainability
-- Visualization
-- Component-level reasoning
+> **Live Demo:** [Click here]((https://drive.google.com/drive/folders/1AeOBonHmU9iy4q4-5UdeerngSCi0Nx3j?usp=drive_link))  
+=
 
 ---
 
-## 🧠 What This Demo Demonstrates
+## Overview
 
-### 🔵 1. Vector Database Retrieval
-- Fast semantic similarity search
-- High recall but noisy results
-- Visualized using similarity score charts
+Large Language Models (LLMs) can hallucinate when answering questions outside their training data or without sufficient context. This project demonstrates **Modular Retrieval-Augmented Generation (RAG)** to reduce hallucinations by grounding LLM responses in relevant external knowledge.  
 
-### 🧠 2. Vector Space Visualization (PCA)
-- PCA projection of embeddings
-- Shows:
-  - All document chunks
-  - Retrieved chunks
-  - Query embedding
-- Explains why **similarity ≠ relevance**
-
-### 🟢 3. Cross-Encoder Re-ranking
-- High-precision semantic scoring
-- Improves relevance
-- Exposes limitations for **multi-part questions**
-
-### 🟣 4. Context Construction
-- Carefully selected and ordered chunks
-- Demonstrates that **context quality is the real bottleneck**
-
-### 🤖 5. Answer Generation
-- Final grounded response using Gemini
-- Reduced hallucinations due to better context
-
-### 🔽 Noise Reduction Funnel
-- Visual funnel showing chunk reduction across RAG stages
+The **interactive demo** allows you to visualize each step of the RAG process and understand how retrieved chunks are scored, re-ranked, and used to generate final answers.
 
 ---
 
-## ✨ Key Learnings
+## Features
 
-- Vector databases are necessary, but **not sufficient**
-- Cross-encoders improve relevance, but don’t fully understand intent
-- Hallucinations often result from:
-  - Missing context
-  - Poor chunk selection
-  - Weak context construction
-- **RAG is a system-design problem, not a tooling problem**
+- **Vector DB Retrieval:** Quickly retrieve relevant chunks using a FAISS vector store.
+- **Vector Space Visualization:** Visualize embeddings in 2D using PCA, with retrieved chunks highlighted.
+- **Cross-Encoder Re-ranking:** Rank retrieved chunks for higher relevance.
+- **Context Builder:** Assemble top chunks into context for the language model.
+- **Answer Generation:** Produce precise answers using the context.
+- **Noise Reduction Funnel:** See how irrelevant chunks are progressively filtered.
 
 ---
 
-## 🏗️ Modular Architecture
+## Tech Stack
 
+- **Python** for backend logic.
+- **Streamlit** for interactive UI.
+- **Matplotlib** for charts and visualization.
+- **Pandas & Numpy** for data manipulation.
+- **Sentence Transformers** for embeddings.
+- **FAISS** for vector store and similarity search.
+- **Cross-Encoder** for reranking.
+- **PCA** for 2D vector space visualization.
+
+---
+
+## Installation
+
+```bash
+# Clone the repository
+git clone ADD_REPO_LINK_HERE
+cd modular-rag-visualizer
+
+# Create environment and install dependencies
+conda create -n rag_env python=3.10 -y
+conda activate rag_env
+pip install -r requirements.txt
+
+# Create a .env file and add your Gemini API key
+echo "GEMINI_API_KEY='your_api_key_here'" > .env
+
+streamlit run app.py
+Enter your question in the input box.
+
+The system retrieves relevant chunks from the document.
+
+Visualize retrieved scores and vector space.
+
+Cross-encoder re-ranks chunks for precision.
+
+Context is built and the final answer is generated.
+
+Observe the noise reduction funnel for clarity.
+
+```
+modular-rag-visualizer/
+│
+├── app.py                 # Streamlit app
+├── pipeline.py            # Modular RAG pipeline
+├── embeddings/
+│   └── embedder.py        # SentenceTransformer embeddings
+├── retrieval/
+│   └── vector_store.py    # FAISS vector storage
+├── reranking/
+│   └── cross_encoder.py   # Cross-encoder reranker
+├── context/
+│   └── builder.py         # Context builder for LLM
+├── generation/
+│   └── answer_generator.py # Gemini / LLM answer generator
+├── ingestion/
+│   ├── loader.py          # Document loader
+│   └── chunker.py         # Document chunker
+├── data/
+│   └── documents.txt      # Demo text data
+├── requirements.txt
+└── .env                   # API key (not tracked in Git)
