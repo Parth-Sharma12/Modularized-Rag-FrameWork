@@ -1,7 +1,7 @@
 # 🧩 Modular RAG Visualizer
 
-> **Live Demo:** [Click here]((https://drive.google.com/drive/folders/1AeOBonHmU9iy4q4-5UdeerngSCi0Nx3j?usp=drive_link))  
-=
+ **Live Demo:** [Click here]((https://drive.google.com/drive/folders/1AeOBonHmU9iy4q4-5UdeerngSCi0Nx3j?usp=drive_link))  
+
 
 ---
 
@@ -65,7 +65,7 @@ Context is built and the final answer is generated.
 
 Observe the noise reduction funnel for clarity.
 
-```
+
 modular-rag-visualizer/
 │
 ├── app.py                 # Streamlit app
@@ -87,3 +87,4 @@ modular-rag-visualizer/
 │   └── documents.txt      # Demo text data
 ├── requirements.txt
 └── .env                   # API key (not tracked in Git)
+```
