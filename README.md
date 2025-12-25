@@ -1,7 +1,7 @@
 # 🧩 Modular RAG Visualizer  
 ### Understanding why Vector Databases alone are not enough
 
-🔗 **Live Demo:** [[Add Demo Link Here](https://drive.google.com/drive/folders/1AeOBonHmU9iy4q4-5UdeerngSCi0Nx3j?usp=drive_link)]  
+🔗 **Live Demo:** [[Demo Here](https://drive.google.com/drive/folders/1AeOBonHmU9iy4q4-5UdeerngSCi0Nx3j?usp=drive_link)]  
 
 
 ---
